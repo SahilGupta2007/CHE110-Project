@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Renewable Energy Resources</title>
+    <style>
+        :root {
+            --primary: #00b894;
+            --secondary: #00cec9;
+            --accent: #6c5ce7;
+            --light: #f5f6fa;
+            --dark: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.75), rgba(108, 92, 231, 0.75)),
+                        url('https://thumbs.dreamstime.com/b/powering-future-close-up-solar-panels-against-clear-blue-sky-renewable-energy-solutions-web-banner-powering-future-323383529.jpg');
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .energy-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .energy-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .energy-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-content h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .energy-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .energy-card:hover .energy-img {
+            transform: scale(1.1);
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 6rem 0;
+            margin-top: 4rem;
+            color: white;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5em;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            padding: 0 2rem;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5em;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+.know-more-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Renewable Energy</h1>
+        <p>Empowering Tomorrow's World Today</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#solar">Solar Energy</a></li>
+            <li><a href="#wind">Wind Energy</a></li>
+            <li><a href="#hydro">Hydropower</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number">70%</div>
+                <p>Carbon Reduction</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12M+</div>
+                <p>Homes Powered</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$50B</div>
+                <p>Annual Investment</p>
+            </div>
+        </section>
+
+        <section class="energy-types">
+            <div class="energy-card" id="solar">
+                <img src="https://cdn.britannica.com/94/192794-050-3F3F3DDD/panels-electricity-order-sunlight.jpg" alt="Solar panels" class="energy-img">
+                <div class="card-content">
+                    <h2>Solar Energy</h2>
+                    <p>Harness the power of the sun with cutting-edge photovoltaic technology. Solar energy provides clean, renewable power while reducing carbon emissions and energy costs.</p>
+					<a href="https://en.wikipedia.org/wiki/Solar_energy" class="know-more-btn" target="_blank">Know More</a>
+                </div>
+            </div>
+
+            <div class="energy-card" id="wind">
+                <img src="https://avaada.com/wp-content/uploads/advantages-of-wind-energy-scaled-1.jpg" alt="Wind turbines" class="energy-img">
+                <div class="card-content">
+                    <h2>Wind Energy</h2>
+                    <p>Modern wind turbines capture nature's kinetic energy, providing sustainable power for communities while preserving valuable farmland and natural habitats.</p><br>
+					<a href="https://en.wikipedia.org/wiki/Wind_power" class="know-more-btn" target="_blank">Know More</a>
+                </div>
+            </div>
+
+            <div class="energy-card" id="hydro">
+                <img src="https://scitechdaily.com/images/Hydropower-Art-Concept.jpg" alt="Hydroelectric dam" class="energy-img">
+                <div class="card-content">
+                    <h2>Hydropower</h2>
+                    <p>Utilizing the force of flowing water, hydroelectric power stations generate consistent, reliable energy while supporting water management and flood control.</p>
+					<a href="https://en.wikipedia.org/wiki/Hydropower" class="know-more-btn" target="_blank">Know More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits" id="benefits">
+            <h2>Why Choose Renewable Energy?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Environmental Impact</h3>
+                    <p>Dramatically reduce carbon emissions and combat climate change while preserving natural resources for future generations.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Economic Growth</h3>
+                    <p>Create millions of new jobs in clean energy sectors while driving innovation and technological advancement.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Energy Independence</h3>
+                    <p>Achieve energy security and price stability by reducing dependence on imported fossil fuels.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Join the renewable energy revolution and help create a sustainable future for our planet.</p>
+        <p>&copy; 2024 Renewable Energy Resources</p>
+    </footer>
+</body>
+</html>
